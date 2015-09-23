@@ -125,10 +125,10 @@ class Basic extends Component {
 							<div className="col-xs-12">
                 minDate and maxDate
                 <DateTimeField
-                  maxDate={moment().add(1, "days")}
-                  minDate={moment().subtract(1, "days")}
+                  minDate={moment()}
+                  maxDate={moment().add(5, "days")}
                 />
-                <pre> {'<DateTimeField daysOfWeekDisabled={[0,1,2]} />'} </pre>
+                <pre> {'<DateTimeField minDate={moment()} maxDate={moment().add(5, "days")} />'} </pre>
 
               </div>
 						</div>
