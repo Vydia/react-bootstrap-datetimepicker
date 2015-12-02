@@ -55,11 +55,10 @@ export default class DateTimePickerDays extends Component {
       }
       if ((minDate && prevMonth.isBefore(minDate)) || (maxDate && prevMonth.isAfter(maxDate))) {
         classes.disabled = true;
-      }
-      else if (this.props.daysOfWeekDisabled.length > 0) {
+      } else if (this.props.daysOfWeekDisabled.length > 0) {
         classes.disabled = this.props.daysOfWeekDisabled.indexOf(prevMonth.day()) !== -1;
       }
-      cells.push(<td key={prevMonth.month() + "-" + prevMonth.date()} className={classnames(classes)} onClick={this.props.setSelectedDate}>{prevMonth.date()}</td>);
+      cells.push(<td className={classnames(classes)} key={prevMonth.month() + "-" + prevMonth.date()} onClick={this.props.setSelectedDate}>{prevMonth.date()}</td>);
       if (prevMonth.weekday() === moment().endOf("week").weekday()) {
         row = <tr key={prevMonth.month() + "-" + prevMonth.date()}>{cells}</tr>;
         html.push(row);
@@ -76,11 +75,11 @@ export default class DateTimePickerDays extends Component {
         <table className="table-condensed">
           <thead>
             <tr>
-              <th className="prev" onClick={this.props.subtractMonth}>‹</th>
+              <th className="prev" onClick={this.props.subtractMonth}><span className="glyphicon glyphicon-chevron-left" /></th>
 
               <th className="switch" colSpan="5" onClick={this.props.showMonths}>{moment.months()[this.props.viewDate.month()]} {this.props.viewDate.year()}</th>
 
-              <th className="next" onClick={this.props.addMonth}>›</th>
+              <th className="next" onClick={this.props.addMonth}><span className="glyphicon glyphicon-chevron-right" /></th>
             </tr>
 
             <tr>
